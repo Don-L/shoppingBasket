@@ -144,29 +144,29 @@ describe('Basket', function() {
     basket.empty();
   })
 
-  // it('should have its value reduced accordingly if its contents hold an even number of BOGOF items', function() {
+  it('should have its value reduced accordingly if its contents hold an even number of BOGOF items', function() {
 
-    // var item = {
-    //   name: 'malibu black',
-    //   price: 2699,
-    //   bogof: true
-    // };
+    var item = {
+      name: 'malibu black',
+      price: 2699,
+      bogof: true
+    };
 
-    // var item2 = {
-    //   name: 'cake',
-    //   price: 150,
-    //   bogof: false
-    // };
+    var item2 = {
+      name: 'cake',
+      price: 150,
+      bogof: false
+    };
 
-    // basket.addItem(item);  //If i comment out this line then both of these last
-    // basket.addItem(item);     //two tests pass; otherwise they both fail??
-  //   basket.addItem(item2);
-  //   basket.addItem(item);
-  //   basket.addItem(item);
-  //   basket.applyBOGOF();
-  //   assert.equal(5548, basket.value);
-  //   basket.empty();
-  // })
+    basket.addItem(item);  //If i comment out this line then both of these last
+    basket.addItem(item);     //two tests pass; otherwise they both fail??
+    basket.addItem(item2);
+    basket.addItem(item);
+    basket.addItem(item);
+    basket.applyBOGOF();
+    assert.equal(5548, basket.value);
+    basket.empty();
+  })
 
   it('should have its value reduced accordingly if its contents hold an odd number of BOGOF items', function() {  //passes test but loses item from contents
 
@@ -182,18 +182,20 @@ describe('Basket', function() {
       bogof: false
     };
 
-   
+    basket.empty();
     basket.addItem(item);
     basket.addItem(item);
+    basket.addItem(item2);
     basket.addItem(item2);
     basket.addItem(item);
     basket.addItem(item);
     basket.addItem(item);
     basket.applyBOGOF();
-    assert.equal(8247, basket.value);
-    console.log(basket.contents.length + "contents length")
-    basket.empty();
-    
+    assert.equal(8397, basket.value);
+    console.log( basket ) 
+    // for (item of basket.contents) {
+    // console.log(item.name)
+    // }
   })
 
 
